@@ -31,7 +31,7 @@ export default function Home() {
           <div className="my-[20px] border-r-2 flex flex-col items-start justify-start gap-[10px]">
             <img
               className="border-r-2"
-              src="/images/newsarticle.png"
+              src="https://terra-pin-crypto.vercel.app/images/Dot-Image.png"
               alt="newsarticle"
             />
             <p>News In Article</p>
@@ -42,7 +42,7 @@ export default function Home() {
           <div className="absolute w-[80px] h-[80px]">
             <img
               className="absolute animate-spin"
-              src="/images/Dot-image.png"
+              src="https://terra-pin-crypto.vercel.app/images/Dot-Image.png"
               alt="dot-image"
               style={{ animation: "spin 10s linear infinite" }}
             />
