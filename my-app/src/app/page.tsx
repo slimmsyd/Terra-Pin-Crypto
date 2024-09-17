@@ -4,9 +4,8 @@ import Image from "next/image";
 import Navbar from "./components/navbar";
 import Header from "./components/header";
 import { useState } from "react";
-import Footer from "./components/footer"
+import Footer from "./components/footer";
 import GlobalButton from "./components/globalbutton";
-
 
 export default function Home() {
   return (
@@ -25,13 +24,13 @@ export default function Home() {
             scale.
           </p>
           <button className="bg-black text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-black hover:border hover:border-black transition-colors">
-              Book A Call
-            </button>
+            Book A Call
+          </button>
 
           <div className="my-[20px] border-r-2 flex flex-col items-start justify-start gap-[10px]">
             <img
               className="border-r-2"
-              src="https://terra-pin-crypto.vercel.app/images/Dot-Image.png"
+              src="/images/newsarticle.png"
               alt="newsarticle"
             />
             <p>News In Article</p>
@@ -64,7 +63,7 @@ export default function Home() {
               <div className="absolute  h-ful">
                 <img
                   className="absolute animate-spin"
-                  src="/dot-image.png"
+                  src="https://terra-pin-crypto.vercel.app/images/Dot-Image.png"
                   alt="dot-image"
                   style={{ animation: "spin 10s linear infinite" }}
                 />
@@ -127,7 +126,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                <GlobalButton />
+                  <GlobalButton />
                 </div>
                 <div className="w-full my-[25px] h-[2px] dividerLine"></div>
 
@@ -155,7 +154,6 @@ export default function Home() {
                   </div>
 
                   <GlobalButton />
-
                 </div>
                 <div className="w-full my-[25px] h-[2px] dividerLine"></div>
 
@@ -182,7 +180,6 @@ export default function Home() {
                   </div>
 
                   <GlobalButton />
-
                 </div>
                 <div className="w-full my-[25px] h-[2px] dividerLine"></div>
 
@@ -210,7 +207,6 @@ export default function Home() {
                   </div>
 
                   <GlobalButton />
-
                 </div>
                 <div className="w-full my-[25px] h-[2px] dividerLine"></div>
 
@@ -242,7 +238,7 @@ function ImageSlider() {
   const services = [
     { src: "/images/mining_machines.png", name: "Bitcoin Mining" },
     { src: "/images/Eth_Logo.png", name: "Crypto Consultation" },
-    { src: "/images/newsarticle.png", name: "Web3 Consultation" },
+    { src: "/images/Eth_Logo.png", name: "Web3 Consultation" },
     { src: "/images/Bitcoin_Logo.png", name: "Blockchain Development" },
   ];
 
