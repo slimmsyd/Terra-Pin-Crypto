@@ -45,6 +45,7 @@ export default function Navbar() {
         <div className="flex items-center">
           <img src="/Terra_Pin_Logo.png" alt="logo" />
         </div>
+        
 
         <div className="flex items-center gap-[10px]">
           <button
