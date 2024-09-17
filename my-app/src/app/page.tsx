@@ -240,10 +240,10 @@ export default function Home() {
 function ImageSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const services = [
-    { src: "/images/newsarticle.png", name: "Bitcoin Mining" },
-    { src: "/images/newsarticle.png", name: "Crypto Consultation" },
+    { src: "/images/mining_machines.png", name: "Bitcoin Mining" },
+    { src: "/images/Eth_Logo.png", name: "Crypto Consultation" },
     { src: "/images/newsarticle.png", name: "Web3 Consultation" },
-    { src: "/images/newsarticle.png", name: "Blockchain Development" },
+    { src: "/images/Bitcoin_Logo.png", name: "Blockchain Development" },
   ];
 
   const nextSlide = () => {
@@ -263,9 +263,9 @@ function ImageSlider() {
         style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
       >
         {services.map((services, index) => (
-          <div key={index} className="w-auto h-auto relative flex-shrink-0 ">
+          <div key={index} className="w-auto h-[500px] relative flex-shrink-0 ">
             <Image
-              className="h-[500px] servicesImage"
+              className="h-[100%] servicesImage"
               src={services.src}
               alt={`Slide ${index + 1}`}
               width={500}
