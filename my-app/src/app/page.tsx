@@ -42,7 +42,7 @@ export default function Home() {
           <div className="absolute w-[80px] h-[80px]">
             <img
               className="absolute animate-spin"
-              src="/Dot-image.png"
+              src="/images/Dot-image.png"
               alt="dot-image"
               style={{ animation: "spin 10s linear infinite" }}
             />
