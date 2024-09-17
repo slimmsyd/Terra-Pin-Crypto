@@ -30,7 +30,7 @@ export default function Home() {
           <div className="my-[20px] border-r-2 flex flex-col items-start justify-start gap-[10px]">
             <img
               className="border-r-2"
-              src="/images/newsarticle.png"
+              src="/images/Newsarticle.png"
               alt="newsarticle"
             />
             <p>News In Article</p>
