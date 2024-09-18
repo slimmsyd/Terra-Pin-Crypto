@@ -18,6 +18,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Terrapin Crypto Solutions",
   description: "Ensuring you are a global leader in Bitcoin, Blockchain, and Web3",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
