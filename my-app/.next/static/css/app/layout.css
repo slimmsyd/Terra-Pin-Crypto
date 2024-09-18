@@ -528,6 +528,12 @@ video {
 .top-1\/2{
   top: 50%;
 }
+.left-0{
+  left: 0px;
+}
+.right-0{
+  right: 0px;
+}
 .z-50{
   z-index: 50;
 }
@@ -670,6 +676,9 @@ video {
 }
 .cursor-pointer{
   cursor: pointer;
+}
+.resize{
+  resize: both;
 }
 .flex-row{
   flex-direction: row;

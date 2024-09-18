@@ -398,14 +398,29 @@ const handleConnect = () => {
   );
 }
 
+
+
 function ImageSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
   const services = [
     { src: "/images/mining_machines.png", name: "Bitcoin Mining" },
     { src: "/images/AI_one.png", name: "Crypto Consultation" },
     { src: "/images/Eth_Logo.png", name: "Web3 Consultation" },
     { src: "/images/Bitcoin_Logo.png", name: "Blockchain Development" },
   ];
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 650);
+    };
+
+    handleResize(); // Set initial state
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % services.length);
@@ -420,34 +435,33 @@ function ImageSlider() {
   return (
     <div className="relative w-full overflow-hidden mb-[100px]">
       <div
-        className="flex transition-transform duration-300 ease-in-out gap-[10px]"
-        style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
+        className={`flex transition-transform duration-300 ease-in-out ${isMobile ? '' : 'gap-[10px]'}`}
+        style={{ transform: `translateX(-${currentIndex * (isMobile ? 100 : 100 / 3)}%)` }}
       >
-        {services.map((services, index) => (
-          <div key={index} className="w-auto h-[500px] relative flex-shrink-0 ">
+        {services.map((service, index) => (
+          <div key={index} className={`${isMobile ? 'w-full' : 'w-auto'} h-[500px] relative flex-shrink-0`}>
             <Image
-              className="h-[100%] servicesImage"
-              src={services.src}
+              className="h-[100%] servicesImage object-cover"
+              src={service.src}
               alt={`Slide ${index + 1}`}
               width={500}
               height={500}
-              objectFit="cover"
             />
             <div className="flex p-[10px] items-end justify-end absolute bottom-0 text-white">
-              <p className="mt-2 text-center font-semibold">{services.name}</p>
+              <p className="mt-2 text-center font-semibold">{service.name}</p>
             </div>
           </div>
         ))}
       </div>
       <button
         onClick={prevSlide}
-        className="absolute clickBtns left-2 top-1/2 transform -translate-y-1/2  p-2 rounded-full"
+        className="absolute clickBtns left-2 top-1/2 transform -translate-y-1/2 p-2 rounded-full"
       >
         &lt;
       </button>
       <button
         onClick={nextSlide}
-        className="absolute clickBtns right-2 top-1/2 transform -translate-y-1/2"
+        className="absolute clickBtns right-2 top-1/2 transform -translate-y-1/2 p-2 rounded-full"
       >
         &gt;
       </button>
