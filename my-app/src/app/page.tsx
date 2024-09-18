@@ -9,7 +9,10 @@ import GlobalButton from "./components/globalbutton";
 
 export default function Home() {
   return (
-    <div>
+    <div
+      className = "overflow-hidden relative"
+    
+    >
       <Navbar />
       <Header />
 
@@ -46,7 +49,9 @@ export default function Home() {
               style={{ animation: "spin 10s linear infinite" }}
             />
           </div>
-          <button className="">Click Me</button>
+          <button className="w-[30px] cursor-pointer h-[30px] border-2 border-black rounded-full flex items-center justify-center">
+            <span className = "w-[5px] h-[5px] bg-black rounded-full"></span>
+          </button>
         </div>
 
         <div className="flex flex-col items-start gap-[14px]">
@@ -237,7 +242,7 @@ function ImageSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const services = [
     { src: "/images/mining_machines.png", name: "Bitcoin Mining" },
-    { src: "/images/Eth_Logo.png", name: "Crypto Consultation" },
+    { src: "/images/AI_one.png", name: "Crypto Consultation" },
     { src: "/images/Eth_Logo.png", name: "Web3 Consultation" },
     { src: "/images/Bitcoin_Logo.png", name: "Blockchain Development" },
   ];

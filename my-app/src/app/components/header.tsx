@@ -36,7 +36,7 @@ export default function Header() {
           </p>
 
           <button
-          className="mt-[20px] bg-transparent border border-white text-white px-4 py-2 rounded-md hover:bg-black hover:text-white transition-colors"
+          className="mt-[20px] bg-transparent border border-white text-white px-4 py-2 rounded-md hover:bg-black hover:text-white transition-colors hover:border-transparent"
           >
             Get In Touch
           </button>
