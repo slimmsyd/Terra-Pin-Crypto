@@ -31,8 +31,7 @@ export default function Header() {
             Ensuring you are a global leader in Bitcoin, Blockchain, and Web3
           </h1>
           <p className="text-white text-[16px] md:text-[18px]">
-            Terra Pin is a decentralized social media platform that allows users
-            to connect with each other and share their thoughts and ideas.
+            Terrapin is ensuring you are a global player in Bitcoin, Blockchain, and Web3
           </p>
 
           <button

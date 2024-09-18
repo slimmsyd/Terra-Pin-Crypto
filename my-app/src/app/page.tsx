@@ -123,10 +123,7 @@ const handleConnect = () => {
           <h3>About Us</h3>
           <div className="w-[80px] h-[2px] dividerLine"></div>
           <p>
-            Terrance Crypto, an MIT spin-off, is a foundation model company
-            headquartered in Boston, Massachusetts. Our mission is to ensure
-            universally capable general intelligence solves problems at every
-            scale.
+         Terrapin Crypto Solutions, our mission is to empower individuals and businesses with advanced cryptocurrency consulting, blockchain solutions, and real-time transaction processing. Starting with Bitcoin mining, we have grown to offer a comprehensive suite of services including cryptocurrency consulting, blockchain development, and Web3 solutions
           </p>
           <button className="bg-black text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-black hover:border hover:border-black transition-colors">
             Book A Call
@@ -260,10 +257,7 @@ const handleConnect = () => {
             <h3>Founder</h3>
             <div className="w-[80px] h-[2px] dividerLine"></div>
             <p>
-              Terrance Crypto, an MIT spin-off, is a foundation model company
-              headquartered in Boston, Massachusetts. Our mission is to ensure
-              universally capable general intelligence solves problems at every
-              scale.
+              Terrance Crypto, is the visionary founder. His expertise in environmental science and successful career in options and stock trading have been instrumental in shaping the company’s trajectory.
             </p>
             <button className="bg-black text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-black hover:border hover:border-black transition-colors">
               Book A Call
