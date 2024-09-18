@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Video from "./video";
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
 
   return (
     <div className="flex flex-col items-center justify-center relative mt-[50px]  w-full h-[80vh]">
