@@ -3,17 +3,108 @@
 import Image from "next/image";
 import Navbar from "./components/navbar";
 import Header from "./components/header";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Footer from "./components/footer";
 import GlobalButton from "./components/globalbutton";
+import Link from "next/link";
+import LoadingComponent from "./components/loadingComponent";
+import { useAccount } from "wagmi";
+import { useWeb3Modal } from "@web3modal/wagmi/react";
 
 export default function Home() {
+
+  const [showPopup, setShowPopup] = useState(false);
+  const [articleImage, setArticleImage] = useState("");
+  const [articleName, setArticleName] = useState("News In Article");
+  const [articleLink, setArticleLink] = useState("/");
+  const [loading, setLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const { address } = useAccount();
+
+  const ADMINADRESS = "0xDcFD8d5BD36667D16aDDD211C59BCdE1A9c4e23B";
+const { open } = useWeb3Modal();
+
+const handleConnect = () => {
+  open();
+};
+
+  useEffect(() => {
+    console.log("Address princple", address)
+    if (address === ADMINADRESS) {
+      setIsAdmin(true);
+    }
+
+    if (!address) {
+      setIsAdmin(false);
+    }
+ 
+    console.log("Loggin the address again ", address)
+  }, [address]);
+  useEffect(() => {
+    console.log("Admin princple", isAdmin)
+
+    if (!isAdmin) {
+      console.log("Not admin", isAdmin)
+    }
+
+  }, [isAdmin])
+
+  useEffect(() => {
+    // Set loading to true before fetching data
+    setLoading(true);
+    // Fetch saved article data on component mount
+    fetch('/api/article')
+      .then(response => response.json())
+      .then(data => {
+        setArticleImage(data.image);
+        setArticleName(data.name);
+        setArticleLink(data.link);
+      })
+      .catch(error => {
+        console.error('Error fetching article data:', error);
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  useEffect(() => {
+
+    console.log("Loading princple", loading)
+  },[loading])
+  const handleDrop = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+    if (file && file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        if (event.target && typeof event.target.result === 'string') {
+          setArticleImage(event.target.result);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  }, []);
+
+  const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  }, []);
+
+  const handleSave = useCallback(() => {
+    // Save article data to the server
+    fetch('/api/article', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ image: articleImage, name: articleName, link: articleLink }),
+    }).then(() => setShowPopup(false));
+  }, [articleImage, articleName, articleLink]);
+
+
   return (
-    <div
-      className = "overflow-hidden relative"
-    
-    >
-      <Navbar />
+    <div className="overflow-hidden relative">
+      <Navbar 
+      handleConnect={handleConnect}
+      />
       <Header />
 
       <div className=" mainWrapper mt-[100px] pb-[100px] flex flex-col items-start justify-start max-w-[1000px] m-auto border-l-[0.5px]  border-r-[0.5px]  border-b-[0.5px] border-black gap-[100px]">
@@ -30,14 +121,78 @@ export default function Home() {
             Book A Call
           </button>
 
-          <div className="my-[20px] border-r-2 flex flex-col items-start justify-start gap-[10px]">
-            <img
-              className="border-r-2"
-              src="/images/Newsarticle.png"
-              alt="newsarticle"
-            />
-            <p>News In Article</p>
+          <div className="my-[20px] flex flex-col items-start justify-start gap-[10px]">
+            <div
+              onDrop={handleDrop}
+              onDragOver={handleDragOver}
+              className={`${isAdmin ? " border-2  border-dashed border-gray-300" : ""} py-4 cursor-pointer`}
+            >
+              {loading ? (
+                <LoadingComponent />
+              ) : (
+                <Image
+                  src={articleImage}
+                alt="newsarticle"
+                width={500}
+                height={300}
+                objectFit="cover"
+                />
+              )}
+              {isAdmin && (
+              <p className="text-center mt-2 text-gray-500">Drag and drop a new image here</p>
+              )}
+            </div>
+            <Link href={articleLink}>
+              <p>{articleName}</p>
+            </Link>
+            {isAdmin && (
+            <button
+              onClick={() => setShowPopup(true)}
+              className="bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600 transition-colors"
+            >
+              Edit Article
+            </button>
+            )}
           </div>
+
+        {/* ... rest of the component ... */}
+
+        {showPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-4 rounded-md">
+            <h3 className="font-bold mb-2">Edit Article</h3>
+            <input
+              type="text"
+              value={articleName}
+              onChange={(e) => setArticleName(e.target.value)}
+              placeholder="Article Name"
+              className="block w-full mb-2 p-1 border rounded"
+            />
+            <input
+              type="text"
+              value={articleLink}
+              onChange={(e) => setArticleLink(e.target.value)}
+              placeholder="Article Link"
+              className="block w-full mb-2 p-1 border rounded"
+            />
+            <button
+              onClick={handleSave}
+              className="bg-green-500 text-white px-2 py-1 rounded-md hover:bg-green-600 transition-colors"
+            >
+              Save
+            </button>
+            <button
+              onClick={() => setShowPopup(false)}
+              className="ml-2 bg-red-500 text-white px-2 py-1 rounded-md hover:bg-red-600 transition-colors"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+
+
+
         </div>
 
         <div className="chatBotPopup w-full relative flex items-center justify-center">
@@ -50,7 +205,7 @@ export default function Home() {
             />
           </div>
           <button className="w-[30px] cursor-pointer h-[30px] border-2 border-black rounded-full flex items-center justify-center">
-            <span className = "w-[5px] h-[5px] bg-black rounded-full"></span>
+            <span className="w-[5px] h-[5px] bg-black rounded-full"></span>
           </button>
         </div>
 

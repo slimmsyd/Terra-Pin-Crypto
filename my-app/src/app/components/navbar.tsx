@@ -14,9 +14,11 @@ import {
   
   import { useWeb3Modal } from "@web3modal/wagmi/react";
 
+interface NavbarProps {
+  handleConnect: () => void;
+}
 
-
-export default function Navbar() {
+export default function Navbar({ handleConnect }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const { isConnected, address } = useAccount();
   const [connectedAddress, setConnectedAddress] = useState<string | undefined>(
@@ -24,9 +26,7 @@ export default function Navbar() {
   );
   const { open } = useWeb3Modal();
 
-  const handleConnect = () => {
-    open();
-  };
+
   const truncateAddress = (address: string) => {
     return `${address.slice(0, 5)}...`;
   };
@@ -45,7 +45,7 @@ export default function Navbar() {
         <div className="flex items-center">
           <img src="/Terra_Pin_Logo.png" alt="logo" />
         </div>
-        
+
 
         <div className="flex items-center gap-[10px]">
           <button
