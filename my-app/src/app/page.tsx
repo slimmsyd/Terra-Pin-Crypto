@@ -10,6 +10,7 @@ import Link from "next/link";
 import LoadingComponent from "./components/loadingComponent";
 import { useAccount } from "wagmi";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
+import { teardownTraceSubscriber } from "next/dist/build/swc";
 
 export default function Home() {
 
@@ -56,9 +57,10 @@ const handleConnect = () => {
     fetch('/api/article')
       .then(response => response.json())
       .then(data => {
-        setArticleImage(data.image);
-        setArticleName(data.name);
-        setArticleLink(data.link);
+        console.log("Data", data)
+        setArticleImage(data.image.url);
+        setArticleName(data.image.alt);
+        setArticleLink(data.image.link);
       })
       .catch(error => {
         console.error('Error fetching article data:', error);
@@ -89,6 +91,15 @@ const handleConnect = () => {
   }, []);
 
   const handleSave = useCallback(() => {
+    if (!isAdmin) {
+
+      console.log("Logging Admin", isAdmin)
+      console.log(articleImage, articleName, articleLink)
+      return
+
+    } 
+
+    
     // Save article data to the server
     fetch('/api/article', {
       method: 'POST',
@@ -142,13 +153,13 @@ const handleConnect = () => {
               <p className="text-center mt-2 text-gray-500">Drag and drop a new image here</p>
               )}
             </div>
-            <Link href={articleLink}>
+            <Link href="/">
               <p>{articleName}</p>
             </Link>
             {isAdmin && (
             <button
               onClick={() => setShowPopup(true)}
-              className="bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600 transition-colors"
+              className= "bg-black text-white px-2 py-1 rounded-md hover:bg-transparent hover:text-black hover:border hover:border-black transition-colors"
             >
               Edit Article
             </button>
@@ -158,7 +169,7 @@ const handleConnect = () => {
         {/* ... rest of the component ... */}
 
         {showPopup && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
           <div className="bg-white p-4 rounded-md">
             <h3 className="font-bold mb-2">Edit Article</h3>
             <input
@@ -282,7 +293,7 @@ const handleConnect = () => {
                   <div className="flex flex-row gap-[5px] items-center">
                     <h2 className="text-[30px] font-bold">$Free /</h2>
                     <div className="flex flex-col gap-[5px]">
-                      <p>60 minutes</p>
+                      <p>30 minutes</p>
                     </div>
                   </div>
 

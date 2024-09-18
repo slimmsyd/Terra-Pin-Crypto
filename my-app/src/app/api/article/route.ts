@@ -1,24 +1,44 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+import { exec } from 'child_process';
+import { promisify } from 'util';
+import { db } from '../../lib/db';
 
-const dataFile = path.join(process.cwd(), 'src', 'data', 'article.json');
-
-export async function GET() {
-  try {
-    const data = await fs.readFile(dataFile, 'utf8');
-    return NextResponse.json(JSON.parse(data));
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to read data' }, { status: 500 });
-  }
-}
+const execAsync = promisify(exec);
 
 export async function POST(request: NextRequest) {
-  try {
-    const body = await request.json();
-    await fs.writeFile(dataFile, JSON.stringify(body));
-    return NextResponse.json({ message: 'Data saved successfully' });
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to save data' }, { status: 500 });
-  }
+    try {
+      const { image, name, link } = await request.json();
+
+      console.log("Logging the article", name, link)
+  
+      // Update the database with the new article data
+      await db.image.upsert({
+        where: { id: 1 },
+        update: { url: image, alt: name, link: link },
+        create: { url: image, alt: name, link: link },
+      });
+  
+      return NextResponse.json({ message: 'Update successful' }, { status: 200 });
+    } catch (error) {
+      console.error('Error updating:', error);
+      return NextResponse.json({ message: 'Error updating' }, { status: 500 });
+    } finally {
+      await db.$disconnect();
+    }
 }
+
+
+
+export async function GET(request: NextRequest) {
+    try { 
+        const image = await db.image.findUnique({
+            where: { id: 1 },
+        });
+
+        return NextResponse.json({ image }, { status: 200 });
+    } catch (error) {
+        console.error('Error getting:', error);
+        return NextResponse.json({ message: 'Error getting' }, { status: 500 });
+    }
+
+    }   
