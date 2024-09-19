@@ -115,16 +115,21 @@ export default function Home() {
   return (
     <div className="overflow-hidden relative">
       <Navbar handleConnect={handleConnect} />
-      <Header
-      onClick = {() => scrollToSection("pricingSection")}
-      />
+      <Header onClick={() => scrollToSection("pricingSection")} />
 
       <div className=" mainWrapper mt-[100px] pb-[100px] flex flex-col items-start justify-start max-w-[1000px] m-auto border-l-[0.5px]  border-r-[0.5px]  border-b-[0.5px] border-black gap-[100px]">
         <div className="flex flex-col items-start  px-[25px] gap-[14px]">
           <h3>About Us</h3>
           <div className="w-[80px] h-[2px] dividerLine"></div>
           <p>
-          Terrapin Crypto Solutions, LLC is a Delaware-registered company that stands at the cutting edge of the cryptocurrency and blockchain industry. Founded on January 23, 2024, we are headquartered in Fort Washington, Maryland, with our registered office located at 1504 North Broom Street, #14, Wilmington, DE 19806. While our primary operations are based in the Washington, D.C. metropolitan area, we have successfully completed projects and consultations across the country and beyond.
+            Terrapin Crypto Solutions, LLC is a Delaware-registered company that
+            stands at the cutting edge of the cryptocurrency and blockchain
+            industry. Founded on January 23, 2024, we are headquartered in Fort
+            Washington, Maryland, with our registered office located at 1504
+            North Broom Street, #14, Wilmington, DE 19806. While our primary
+            operations are based in the Washington, D.C. metropolitan area, we
+            have successfully completed projects and consultations across the
+            country and beyond.
           </p>
           <button
             onClick={() => scrollToSection("pricingSection")}
@@ -133,15 +138,16 @@ export default function Home() {
             Book A Call
           </button>
 
-          <div 
-          id = "newsSection"
-          className="my-[20px] flex flex-col items-start justify-start gap-[10px]">
+          <div
+            id="newsSection"
+            className="my-[20px] flex flex-col items-start justify-start gap-[10px]"
+          >
             <div
               onDrop={handleDrop}
               onDragOver={handleDragOver}
               className={`${
                 isAdmin ? " border-2  border-dashed border-gray-300" : ""
-              } py-4 cursor-pointer`}
+              } py-4 cursor-pointer relative`}
             >
               {loading ? (
                 <LoadingComponent />
@@ -152,6 +158,7 @@ export default function Home() {
                   width={500}
                   height={300}
                   objectFit="cover"
+                  className="relative z-10"
                 />
               )}
               {isAdmin && (
@@ -159,6 +166,12 @@ export default function Home() {
                   Drag and drop a new image here
                 </p>
               )}
+
+              <img
+                className="absolute left-[-40px] z-1 top-[-20px]"
+                src="https://terra-pin-crypto.vercel.app/images/Dot-Image.png"
+                alt="dot-image"
+              />
             </div>
             <Link href="/">
               <p>{articleName}</p>
@@ -224,9 +237,10 @@ export default function Home() {
           </button>
         </div>
 
-        <div 
-        id = "servicesSection"
-        className="flex flex-col items-start gap-[14px]">
+        <div
+          id="servicesSection"
+          className="flex flex-col items-start gap-[14px]"
+        >
           <div className="flex flex-col items-start gap-[14px  px-[25px]">
             <h3>Our Services</h3>
             <p>What we offer</p>
@@ -265,19 +279,51 @@ export default function Home() {
             </button>
           </div>
 
-          <div 
-          id = "aboutFounderSection"
-          className="flex flex-col items-start my-[100px]  px-[25px] gap-[14px]">
+          <div
+            id="aboutFounderSection"
+            className="flex flex-col items-start my-[100px]  px-[25px] gap-[14px]"
+          >
             <h3>Founder</h3>
             <div className="w-[80px] h-[2px] dividerLine"></div>
-            <p>
-            Sulaman Shah is the visionary founder and CEO of Terrapin Crypto Solutions, LLC. His expertise in environmental science and successful career in options and stock trading have been instrumental in shaping the company’s trajectory. <br /> <br />
 
-Sulaman’s journey began in 2019 with options and stock trading, where he quickly achieved notable success. This success allowed him to acquire the company’s first ASIC (Application-Specific Integrated Circuit) miner on March 16, 2024 marking the start of our Bitcoin mining operations. Terrapin Crypto Solutions is dedicated to supporting the Bitcoin network with real-time transaction processing and blockchain security. Sulaman has traveled to over 20 countries across 4 continents, bringing a global perspective to Terrapin Crypto Solutions. His international experiences have enriched his understanding of diverse markets and cultures, which informs our strategic direction and global outlook. 
+            <div className = "relative">
+
+            <p>
+              Sulaman Shah is the visionary founder and CEO of Terrapin Crypto
+              Solutions, LLC. His expertise in environmental science and
+              successful career in options and stock trading have been
+              instrumental in shaping the company’s trajectory. <br /> <br />
+              Sulaman’s journey began in 2019 with options and stock trading,
+              where he quickly achieved notable success. This success allowed
+              him to acquire the company’s first ASIC (Application-Specific
+              Integrated Circuit) miner on March 16, 2024 marking the start of
+              our Bitcoin mining operations. Terrapin Crypto Solutions is
+              dedicated to supporting the Bitcoin network with real-time
+              transaction processing and blockchain security. Sulaman has
+              traveled to over 20 countries across 4 continents, bringing a
+              global perspective to Terrapin Crypto Solutions. His international
+              experiences have enriched his understanding of diverse markets and
+              cultures, which informs our strategic direction and global
+              outlook.
             </p>
-            <Link 
-            href = "https://calendly.com/ceo-terrapincrypto/30min?back=1&month=2024-09"
-            className="bg-black text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-black hover:border hover:border-black transition-colors">
+            <img
+                className="absolute left-[-40px] z-1 top-[-20px]"
+                src="https://terra-pin-crypto.vercel.app/images/Dot-Image.png"
+                alt="dot-image"
+              />
+            <img
+                className="absolute right-[-40px] z-1 bottom-[-20px]"
+                src="https://terra-pin-crypto.vercel.app/images/Dot-Image.png"
+                alt="dot-image"
+              />
+
+
+            </div>
+        
+            <Link
+              href="https://calendly.com/ceo-terrapincrypto/30min?back=1&month=2024-09"
+              className="bg-black text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-black hover:border hover:border-black transition-colors"
+            >
               Book A Call
             </Link>
 
@@ -296,9 +342,10 @@ Sulaman’s journey began in 2019 with options and stock trading, where he quick
             className="flex flex-col items-start  px-[25px] gap-[14px]"
           >
             <h3>Let’s curate blockchain solutions</h3>
-            <Link 
-            href = "https://calendly.com/ceo-terrapincrypto/30min?back=1&month=2024-09"
-            className="bg-black text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-black hover:border hover:border-black transition-colors">
+            <Link
+              href="https://calendly.com/ceo-terrapincrypto/30min?back=1&month=2024-09"
+              className="bg-black text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-black hover:border hover:border-black transition-colors"
+            >
               Book A Call
             </Link>
             <div className="w-[80px] h-[2px] dividerLine"></div>
@@ -426,10 +473,30 @@ function ImageSlider() {
   const [isMobile, setIsMobile] = useState(false);
 
   const services = [
-    { src: "/images/mining_machines.png", name: "Bitcoin Mining", description: "Dedicated to supporting the Bitcoin network by processing transactions in real time."  },
-    { src: "/images/AI_one.png", name: "Crypto Consultation", description: "Cryptocurrency Consulting: Expert guidance on cryptocurrency investments, security, and blockchain integration." },
-    { src: "/images/Eth_Logo.png", name: "Web3 Consultation", description: "Comprehensive support for users at all levels, from beginners to advanced, covering privacy, security, and advanced blockchain applications." },
-    { src: "/images/Bitcoin_Logo.png", name: "Blockchain Development", description: " Custom blockchain applications, token development, and other tailored solutions." },
+    {
+      src: "/images/mining_machines.png",
+      name: "Bitcoin Mining",
+      description:
+        "Dedicated to supporting the Bitcoin network by processing transactions in real time.",
+    },
+    {
+      src: "/images/AI_one.png",
+      name: "Crypto Consultation",
+      description:
+        "Cryptocurrency Consulting: Expert guidance on cryptocurrency investments, security, and blockchain integration.",
+    },
+    {
+      src: "/images/Eth_Logo.png",
+      name: "Web3 Consultation",
+      description:
+        "Comprehensive support for users at all levels, from beginners to advanced, covering privacy, security, and advanced blockchain applications.",
+    },
+    {
+      src: "/images/Bitcoin_Logo.png",
+      name: "Blockchain Development",
+      description:
+        " Custom blockchain applications, token development, and other tailored solutions.",
+    },
   ];
 
   useEffect(() => {
@@ -472,9 +539,10 @@ function ImageSlider() {
               isMobile ? "w-full" : "w-auto"
             } h-[500px] relative flex-shrink-0 group`}
           >
-
-            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-10 absolute bg-black/50 top-0 left-0 w-full h-full items-center justify-center flex"> 
-              <span className="text-[20px] font-bold text-white">{service.description} </span>
+            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-10 absolute bg-black/50 top-0 left-0 w-full h-full items-center justify-center flex">
+              <span className="text-[20px] font-bold text-white">
+                {service.description}{" "}
+              </span>
             </div>
 
             <Image
