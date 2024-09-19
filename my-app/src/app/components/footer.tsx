@@ -1,8 +1,12 @@
 "use client"
 import Video from "./video"
+import { useCallback } from "react";
 
 export default function Footer()
  { 
+  const scrollToSection = useCallback((sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+  }, []);
 
     return ( 
         <footer className="relative">
@@ -26,10 +30,30 @@ export default function Footer()
       </div>
 
       <div className = "bg-transparent flex gap-[10px] text-white w-full h-[20vh] relative z-50 items-end py-[10px] justify-center">
-        <button className="text-white bg-transparent px-4 py-2 rounded-md hover:bg-white hover:text-black transition-colors">About Founder</button>
-        <button className="text-white bg-transparent px-4 py-2 rounded-md hover:bg-white hover:text-black transition-colors">Services</button>
-        <button className="text-white bg-transparent px-4 py-2 rounded-md hover:bg-white hover:text-black transition-colors">News</button>
-        <button className="text-white bg-transparent px-4 py-2 rounded-md hover:bg-white hover:text-black transition-colors">Book A Call</button>
+      <button
+          className="text-white bg-transparent px-4 py-2 rounded-md hover:bg-white hover:text-black transition-colors"
+          onClick={() => scrollToSection("aboutFounderSection")}
+        >
+          About Founder
+        </button>
+        <button
+          className="text-white bg-transparent px-4 py-2 rounded-md hover:bg-white hover:text-black transition-colors"
+          onClick={() => scrollToSection("servicesSection")}
+        >
+          Services
+        </button>
+        <button
+          className="text-white bg-transparent px-4 py-2 rounded-md hover:bg-white hover:text-black transition-colors"
+          onClick={() => scrollToSection("newsSection")}
+        >
+          News
+        </button>
+        <button
+          className="text-white bg-transparent px-4 py-2 rounded-md hover:bg-white hover:text-black transition-colors"
+          onClick={() => scrollToSection("pricingSection")}
+        >
+          Book A Call
+        </button>
     </div>
  
 

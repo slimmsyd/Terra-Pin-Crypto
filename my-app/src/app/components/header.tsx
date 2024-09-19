@@ -2,8 +2,12 @@
 
 import { useState } from "react";
 import Video from "./video";
-export default function Header() {
 
+interface HeaderProps {
+  onClick: () => void;
+}
+
+export default function Header({ onClick }: HeaderProps) {
   return (
     <div className="flex flex-col items-center justify-center relative mt-[50px]  w-full h-[80vh]">
       <div className="overlayDark absolute"></div>
@@ -22,19 +26,19 @@ export default function Header() {
       </div>
 
       <div className="flex flex-col items-center  text-center justify-center relative z-50">
-        <div
-        className = "max-w-[950px] m-auto"
-        >
-
-<h1 className="text-white text-[28px] md:text-[65px] font-bold z-50">
-            Ensuring you are a global leader in Bitcoin, Blockchain, and Web3
+        <div className="max-w-[950px] m-auto">
+          <h1 className="text-white text-[28px] md:text-[65px] font-bold z-50">
+            Washington D.C's Blockchain & mining experts:
           </h1>
           <p className="text-white text-[16px] md:text-[18px]">
-            Terrapin is ensuring you are a global player in Bitcoin, Blockchain, and Web3
+            Bridging innovation and sustainability. and keep the part under that
+            says Terrapin is ensuring you are a global player in Bitcoin,
+            Blockchain, and Web3{" "}
           </p>
 
           <button
-          className="mt-[20px] bg-transparent border border-white text-white px-4 py-2 rounded-md hover:bg-black hover:text-white transition-colors hover:border-transparent"
+            className="mt-[20px] bg-transparent border border-white text-white px-4 py-2 rounded-md hover:bg-black hover:text-white transition-colors hover:border-transparent"
+            onClick={onClick}
           >
             Get In Touch
           </button>
