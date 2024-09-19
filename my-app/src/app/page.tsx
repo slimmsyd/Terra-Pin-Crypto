@@ -130,6 +130,13 @@ export default function Home() {
             operations are based in the Washington, D.C. metropolitan area, we
             have successfully completed projects and consultations across the
             country and beyond.
+            <br /> <br />
+            The name Terrapin was chosen out of respect for the Algonquin Native
+            Americans indigenous to the Maryland region, where our company was
+            founded. The terrapin, a type of turtle, symbolizes perseverance and
+            resilience—qualities that align with our mission to innovate and
+            excel in the rapidly evolving field of cryptocurrency and blockchain
+            technology.
           </p>
           <button
             onClick={() => scrollToSection("pricingSection")}
@@ -286,40 +293,37 @@ export default function Home() {
             <h3>Founder</h3>
             <div className="w-[80px] h-[2px] dividerLine"></div>
 
-            <div className = "relative">
-
-            <p>
-              Sulaman Shah is the visionary founder and CEO of Terrapin Crypto
-              Solutions, LLC. His expertise in environmental science and
-              successful career in options and stock trading have been
-              instrumental in shaping the company’s trajectory. <br /> <br />
-              Sulaman’s journey began in 2019 with options and stock trading,
-              where he quickly achieved notable success. This success allowed
-              him to acquire the company’s first ASIC (Application-Specific
-              Integrated Circuit) miner on March 16, 2024 marking the start of
-              our Bitcoin mining operations. Terrapin Crypto Solutions is
-              dedicated to supporting the Bitcoin network with real-time
-              transaction processing and blockchain security. Sulaman has
-              traveled to over 20 countries across 4 continents, bringing a
-              global perspective to Terrapin Crypto Solutions. His international
-              experiences have enriched his understanding of diverse markets and
-              cultures, which informs our strategic direction and global
-              outlook.
-            </p>
-            <img
+            <div className="relative">
+              <p>
+                Sulaman Shah is the visionary founder and CEO of Terrapin Crypto
+                Solutions, LLC. His expertise in environmental science and
+                successful career in options and stock trading have been
+                instrumental in shaping the company’s trajectory. <br /> <br />
+                Sulaman’s journey began in 2019 with options and stock trading,
+                where he quickly achieved notable success. This success allowed
+                him to acquire the company’s first ASIC (Application-Specific
+                Integrated Circuit) miner on March 16, 2024 marking the start of
+                our Bitcoin mining operations. Terrapin Crypto Solutions is
+                dedicated to supporting the Bitcoin network with real-time
+                transaction processing and blockchain security. Sulaman has
+                traveled to over 20 countries across 4 continents, bringing a
+                global perspective to Terrapin Crypto Solutions. His
+                international experiences have enriched his understanding of
+                diverse markets and cultures, which informs our strategic
+                direction and global outlook.
+              </p>
+              <img
                 className="absolute left-[-40px] z-1 top-[-20px]"
                 src="https://terra-pin-crypto.vercel.app/images/Dot-Image.png"
                 alt="dot-image"
               />
-            <img
+              <img
                 className="absolute right-[-40px] z-1 bottom-[-20px]"
                 src="https://terra-pin-crypto.vercel.app/images/Dot-Image.png"
                 alt="dot-image"
               />
-
-
             </div>
-        
+
             <Link
               href="https://calendly.com/ceo-terrapincrypto/30min?back=1&month=2024-09"
               className="bg-black text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-black hover:border hover:border-black transition-colors"
