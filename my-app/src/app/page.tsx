@@ -11,6 +11,12 @@ import LoadingComponent from "./components/loadingComponent";
 import { useAccount } from "wagmi";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 import { teardownTraceSubscriber } from "next/dist/build/swc";
+import Lenis from '@studio-freight/lenis'
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 
 export default function Home() {
   const [showPopup, setShowPopup] = useState(false);
@@ -22,6 +28,7 @@ export default function Home() {
   const { address } = useAccount();
 
   const ADMINADRESS = "0xDcFD8d5BD36667D16aDDD211C59BCdE1A9c4e23B";
+  const DEVADDRESS = "EUy7RKJsBoG81yheHS7YCD8wyfJbp6CD7XB2DScoSZEs"
   const { open } = useWeb3Modal();
 
   const handleConnect = () => {
@@ -34,7 +41,9 @@ export default function Home() {
 
   useEffect(() => {
     console.log("Address princple", address);
-    if (address === ADMINADRESS) {
+    if (address === ADMINADRESS ) {
+      setIsAdmin(true);
+    }else if (address === DEVADDRESS){
       setIsAdmin(true);
     }
 
@@ -112,9 +121,43 @@ export default function Home() {
     }).then(() => setShowPopup(false));
   }, [articleImage, articleName, articleLink]);
 
+  // Smooth Scroll feature 
+
+
+  useEffect(() => {
+    // Initialize Lenis for smooth scrolling
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: "vertical",
+      gestureDirection: "vertical",
+      smooth: true,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    } as any);
+
+    const raf = (time: number) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+
+    requestAnimationFrame(raf);
+
+    const mm = gsap.matchMedia();
+
+    return () => {
+      lenis.destroy();
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
+
   return (
     <div className="overflow-hidden relative">
-      <Navbar handleConnect={handleConnect} />
+      <Navbar handleConnect={handleConnect}
+      scrollToSection={scrollToSection}
+      />
       <Header onClick={() => scrollToSection("pricingSection")} />
 
       <div className=" mainWrapper mt-[100px] pb-[100px] flex flex-col items-start justify-start max-w-[1000px] m-auto border-l-[0.5px]  border-r-[0.5px]  border-b-[0.5px] border-black gap-[100px]">

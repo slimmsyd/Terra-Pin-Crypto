@@ -16,9 +16,10 @@ import {
 
 interface NavbarProps {
   handleConnect: () => void;
+  scrollToSection: (sectionId: string) => void;
 }
 
-export default function Navbar({ handleConnect }: NavbarProps) {
+export default function Navbar({ handleConnect, scrollToSection }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const { isConnected, address } = useAccount();
   const [connectedAddress, setConnectedAddress] = useState<string | undefined>(
@@ -54,7 +55,7 @@ export default function Navbar({ handleConnect }: NavbarProps) {
             {address ? connectedAddress : "Connect Wallet"}
           </button>
 
-          <button className="bg-black hidden md:flex text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-black hover:border hover:border-black transition-colors">
+          <button onClick={() => scrollToSection("pricingSection")} className="bg-black hidden md:flex text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-black hover:border hover:border-black transition-colors">
             Book A Call
           </button>
         </div>
