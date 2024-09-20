@@ -31,8 +31,7 @@ export default function Header({ onClick }: HeaderProps) {
             Washington D.C's Blockchain & mining experts:
           </h1>
           <p className="text-white text-[16px] md:text-[18px]">
-            Bridging innovation and sustainability. and keep the part under that
-            says Terrapin is ensuring you are a global player in Bitcoin,
+            Bridging innovation and sustainability. Terrapin is ensuring you are a global player in Bitcoin,
             Blockchain, and Web3{" "}
           </p>
 
