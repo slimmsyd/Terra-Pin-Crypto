@@ -20,6 +20,7 @@ model CryptoAddress {
   questionsAsked    Int?      @default(0)
 }
 
+
 model Image {
   id        Int      @id @default(autoincrement())
   url       String
@@ -51,3 +52,6 @@ model Module {
 
   @@index([courseId])
 }
+
+// Add any new models or fields that were part of the failed migration here
+
