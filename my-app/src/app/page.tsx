@@ -41,9 +41,7 @@ export default function Home() {
 
   useEffect(() => {
     console.log("Address princple", address);
-    if (address === ADMINADRESS ) {
-      setIsAdmin(true);
-    }else if (address === DEVADDRESS){
+    if (address === ADMINADRESS || address === (DEVADDRESS as unknown as `0x${string}`)) {
       setIsAdmin(true);
     }
 
