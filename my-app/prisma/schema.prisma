@@ -20,7 +20,6 @@ model CryptoAddress {
   questionsAsked    Int?      @default(0)
 }
 
-
 model Image {
   id        Int      @id @default(autoincrement())
   url       String
@@ -33,10 +32,12 @@ model Image {
 model Course {
   id        Int      @id @default(autoincrement())
   title     String
+  
   author    String
   date      DateTime
   createdAt DateTime @default(now())
-  updatedAt DateTime
+  updatedAt DateTime @updatedAt
+  modules   Module[]
 }
 
 model Module {
@@ -47,11 +48,9 @@ model Module {
   objectives String[]
   activities String[]
   createdAt  DateTime @default(now())
-  updatedAt  DateTime
+  updatedAt  DateTime @updatedAt
   videoURL   String
+  course     Course   @relation(fields: [courseId], references: [id])
 
   @@index([courseId])
 }
-
-// Add any new models or fields that were part of the failed migration here
-
