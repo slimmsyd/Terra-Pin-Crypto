@@ -19,7 +19,11 @@ export const metadata: Metadata = {
   title: "Terrapin Crypto Solutions",
   description: "Ensuring you are a global leader in Bitcoin, Blockchain, and Web3",
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
 };
 
