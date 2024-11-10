@@ -186,7 +186,7 @@ export default function Home() {
             Book A Call
           </button>
 
-          <div
+          {/* <div
             id="newsSection"
             className="my-[20px] flex flex-col items-start justify-start gap-[10px]"
           >
@@ -232,7 +232,7 @@ export default function Home() {
                 Edit Article
               </button>
             )}
-          </div>
+          </div> */}
 
           {/* ... rest of the component ... */}
 
@@ -347,7 +347,7 @@ export default function Home() {
               <div className="overlayDark absolute"></div>
 
               <img
-                className="border-r-2 h-[500px] w-full object-cover md:object-[center_-250px] object-center"
+                className="border-r-2 h-[500px] w-full object-cover md:object-[center_-90px] object-center"
                 src="/SullyFounder.jpg"
                 alt="newsarticle"
               />
