@@ -40,5 +40,6 @@ export default function RootLayout({
         <Web3ModalProvider>{children}</Web3ModalProvider>
       </body>
     </html>
+    
   );
 }

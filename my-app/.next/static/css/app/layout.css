@@ -574,12 +574,6 @@ video {
 .mb-2{
   margin-bottom: 0.5rem;
 }
-.mb-\[100px\]{
-  margin-bottom: 100px;
-}
-.mb-\[40px\]{
-  margin-bottom: 40px;
-}
 .ml-2{
   margin-left: 0.5rem;
 }
@@ -651,9 +645,6 @@ video {
 }
 .w-\[80px\]{
   width: 80px;
-}
-.w-\[full\]{
-  width: full;
 }
 .w-auto{
   width: auto;
@@ -807,8 +798,17 @@ video {
 .bg-opacity-50{
   --tw-bg-opacity: 0.5;
 }
+.object-contain{
+  object-fit: contain;
+}
 .object-cover{
   object-fit: cover;
+}
+.object-top{
+  object-position: top;
+}
+.object-center{
+  object-position: center;
 }
 .p-1{
   padding: 0.25rem;
@@ -1044,6 +1044,42 @@ border: 0.5px solid #ffffff;
 
   .md\:flex{
     display: flex;
+  }
+
+  .md\:object-top{
+    object-position: top;
+  }
+
+  .md\:object-\[center_-100px\]{
+    object-position: center -100px;
+  }
+
+  .md\:object-\[center_-50px\]{
+    object-position: center -50px;
+  }
+
+  .md\:object-\[center_-20px\]{
+    object-position: center -20px;
+  }
+
+  .md\:object-\[center_20px\]{
+    object-position: center 20px;
+  }
+
+  .md\:object-\[center_90px\]{
+    object-position: center 90px;
+  }
+
+  .md\:object-\[center_-90px\]{
+    object-position: center -90px;
+  }
+
+  .md\:object-\[center_-190px\]{
+    object-position: center -190px;
+  }
+
+  .md\:object-\[center_-250px\]{
+    object-position: center -250px;
   }
 
   .md\:text-\[18px\]{

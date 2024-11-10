@@ -297,35 +297,6 @@ export default function Home() {
 
           <ImageSlider />
 
-          <div className="flex flex-col items-center my-[100px]  px-[25px] gap-[14px]">
-            <div className="relative w-full mb-[40px] text-center flex items-center justify-center gap-[10px]">
-              <div className="absolute  h-ful">
-                <img
-                  className="absolute animate-spin"
-                  src="https://terra-pin-crypto.vercel.app/images/Dot-Image.png"
-                  alt="dot-image"
-                  style={{ animation: "spin 10s linear infinite" }}
-                />
-
-                <h3>About Us</h3>
-                <p>Global Citzen</p>
-                <div className="w-[full] h-[2px] dividerLine"></div>
-              </div>
-            </div>
-            <p className="text-center">
-              While our core operations are based in the DMV (D.C., Maryland,
-              Virginia) area, we have expanded our services to include projects
-              and consultations outside this region. Our expertise and
-              innovative solutions have reached clients across the country and
-              internationally. 
-            </p>
-            <button
-              onClick={() => scrollToSection("pricingSection")}
-              className="bg-black text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-black hover:border hover:border-black transition-colors"
-            >
-              Book A Call
-            </button>
-          </div>
 
           <div
             id="aboutFounderSection"
@@ -372,11 +343,11 @@ export default function Home() {
               Book A Call
             </Link>
 
-            <div className="my-[20px] w-[100%] border-r-2 overflow-hidden relative w-[100%]flex flex-col items-start justify-start gap-[10px]">
+            <div className="my-[20px] w-[100%] border-r-2 overflow-hidden relative flex flex-col items-center justify-center">
               <div className="overlayDark absolute"></div>
 
               <img
-                className="border-r-2 h-[500px] w-full object-cover"
+                className="border-r-2 h-[500px] w-full object-cover md:object-[center_-250px] object-center"
                 src="/SullyFounder.jpg"
                 alt="newsarticle"
               />
@@ -566,7 +537,7 @@ function ImageSlider() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden mb-[100px]">
+    <div className="relative w-full overflow-hidden my-[100px]">
       <div
         className={`flex transition-transform duration-300 ease-in-out ${
           isMobile ? "" : "gap-[10px]"
