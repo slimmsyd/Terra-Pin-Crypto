@@ -347,7 +347,7 @@ export default function Home() {
               <div className="overlayDark absolute"></div>
 
               <img
-                className="border-r-2 h-[500px] w-full object-cover md:object-[center_-90px] object-center"
+                className="border-r-2 h-[500px] w-full object-cover md:object-[center_-250px] object-center"
                 src="/SullyFounder.jpg"
                 alt="newsarticle"
               />
