@@ -39,17 +39,7 @@ export default function  Header({ onClick }: HeaderProps) {
             className="mt-[20px] bg-transparent border border-white text-white px-4 py-2 rounded-md hover:bg-black hover:text-white transition-colors hover:border-transparent"
             onClick={onClick}
           >
-            Get In TouchSulaman Shah is the founder and CEO of Terrapin Crypto Solutions, LLC, a Bitcoin-focused company advancing decentralized infrastructure, environmental sustainability, and blockchain innovation. In 2024, Terrapin began mining Bitcoin with a 100% carbon-neutral footprint, with over 70% of its hashrate powered by hydropower.
-
-Through a strategic partnership with Meta-Luban, Sulaman serves as the exclusive North American ambassador, providing clients with top-tier access to ASIC sales, hosting, repairs, and mining site development from leading manufacturers.
-
-With a foundation in Environmental Science and Biological Research, Sulaman brings scientific precision to his investment and mining strategies. His early interest in sound money began with buying gold and silver in middle school—shaping a lifelong commitment to financial sovereignty and long-term value.
-
-Sulaman advises the U.S. Senate on the capabilities, use cases, and economic benefits of Bitcoin and blockchain technology for American constituents and businesses.
-
-He also advises Bitcoin Timber, a renewable-powered mining sawmill in Guyana; Carbon Country, an eco-aligned mining venture; and contributes to Bitcoin District, a grassroots Bitcoin education and community hub in the Washington, D.C. metro area.
-
-A dedicated advocate for inclusion and sustainability, Sulaman is an Eagle Scout, Vigil Honor recipient, and fluent in French. His ongoing research explores Bitcoin in Developing regions, bee-integrated mining models, and broader applications of blockchain for environmental and social impact.
+            Get In Touch
           </button>
         </div>
       </div>

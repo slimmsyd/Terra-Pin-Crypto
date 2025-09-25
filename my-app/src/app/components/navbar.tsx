@@ -44,7 +44,7 @@ export default function Navbar({ handleConnect, scrollToSection }: NavbarProps) 
     <nav className={`${isScrolled ? "bg-black" : ""}  w-full h-[50px]  z-50`}>
       <div className="flex items-start justify-between w-full  p-4 mx-auto">
         <div className="flex items-center">
-          <img src="/LogoBlack.png" alt="logo" />
+          <img src="/LogoBlack.png" alt="logo" className="w-[50px] h-[50px] object-contain" />
         </div>
 
 

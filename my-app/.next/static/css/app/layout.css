@@ -655,6 +655,9 @@ video {
 .w-full{
   width: 100%;
 }
+.w-\[50px\]{
+  width: 50px;
+}
 .max-w-\[1000px\]{
   max-width: 1000px;
 }
@@ -800,6 +803,9 @@ video {
 }
 .bg-opacity-50{
   --tw-bg-opacity: 0.5;
+}
+.object-contain{
+  object-fit: contain;
 }
 .object-cover{
   object-fit: cover;
