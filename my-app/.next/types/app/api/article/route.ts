@@ -1,4 +1,4 @@
-// File: /Users/sydneysanders/Desktop/CodeProjects/TerraPinCrypt/my-app/src/app/api/article/route.ts
+// File: /Users/sydneysanders/Desktop/Terra-Pin-Crypto/my-app/src/app/api/article/route.ts
 import * as entry from '../../../../../src/app/api/article/route.js'
 import type { NextRequest } from 'next/server.js'
 

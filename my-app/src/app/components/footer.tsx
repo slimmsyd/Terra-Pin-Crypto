@@ -5,7 +5,7 @@ import { useCallback } from "react";
 export default function Footer()
  { 
   const scrollToSection = useCallback((sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "auto" });
   }, []);
 
     return ( 
@@ -29,7 +29,11 @@ export default function Footer()
         
       </div>
 
-      <div className = "bg-transparent flex gap-[10px] text-white w-full h-[20vh] relative z-50 items-end py-[10px] justify-center">
+      <div className = "bg-transparent flex flex-col gap-[10px] text-white w-full h-[20vh] relative z-50 items-center justify-end py-[10px]">
+        <div className="flex items-center mb-2">
+          <img src="/LogoBlack.png" alt="logo" className="h-8 filter invert" />
+        </div>
+        <div className="flex gap-[10px]">
       <button
           className="text-white bg-transparent px-4 py-2 rounded-md hover:bg-white hover:text-black transition-colors"
           onClick={() => scrollToSection("aboutFounderSection")}
@@ -54,6 +58,7 @@ export default function Footer()
         >
           Book A Call
         </button>
+        </div>
     </div>
  
 

@@ -1,4 +1,4 @@
-// File: /Users/sydneysanders/Desktop/CodeProjects/TerraPinCrypt/my-app/src/app/page.tsx
+// File: /Users/sydneysanders/Desktop/Terra-Pin-Crypto/my-app/src/app/page.tsx
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

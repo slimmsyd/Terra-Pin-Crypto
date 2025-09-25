@@ -11,11 +11,6 @@ import LoadingComponent from "./components/loadingComponent";
 import { useAccount } from "wagmi";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 import { teardownTraceSubscriber } from "next/dist/build/swc";
-import Lenis from '@studio-freight/lenis'
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 
 export default function Home() {
@@ -36,7 +31,7 @@ export default function Home() {
   };
 
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "auto" });
   };
 
   useEffect(() => {
@@ -119,36 +114,6 @@ export default function Home() {
     }).then(() => setShowPopup(false));
   }, [articleImage, articleName, articleLink]);
 
-  // Smooth Scroll feature 
-
-
-  useEffect(() => {
-    // Initialize Lenis for smooth scrolling
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: "vertical",
-      gestureDirection: "vertical",
-      smooth: true,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false,
-    } as any);
-
-    const raf = (time: number) => {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    };
-
-    requestAnimationFrame(raf);
-
-    const mm = gsap.matchMedia();
-
-    return () => {
-      lenis.destroy();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
 
 
   return (
@@ -159,7 +124,7 @@ export default function Home() {
       <Header onClick={() => scrollToSection("pricingSection")} />
 
       <div className=" mainWrapper mt-[100px] pb-[100px] flex flex-col items-start justify-start max-w-[1000px] m-auto border-l-[0.5px]  border-r-[0.5px]  border-b-[0.5px] border-black gap-[100px]">
-        <div className="flex flex-col items-start  px-[25px] gap-[14px]">
+        <div id="aboutUsSection" className="flex flex-col items-start  px-[25px] gap-[14px]">
           <h3>About Us</h3>
           <div className="w-[80px] h-[2px] dividerLine"></div>
           <p>
@@ -307,22 +272,15 @@ export default function Home() {
 
             <div className="relative">
               <p>
-                Sulaman Shah is the visionary founder and CEO of Terrapin Crypto
-                Solutions, LLC. His expertise in environmental science and
-                successful career in options and stock trading have been
-                instrumental in shaping the company’s trajectory. <br /> <br />
-                Sulaman’s journey began in 2019 with options and stock trading,
-                where he quickly achieved notable success. This success allowed
-                him to acquire the company’s first ASIC (Application-Specific
-                Integrated Circuit) miner on March 16, 2024 marking the start of
-                our Bitcoin mining operations. Terrapin Crypto Solutions is
-                dedicated to supporting the Bitcoin network with real-time
-                transaction processing and blockchain security. Sulaman has
-                traveled to over 20 countries across 4 continents, bringing a
-                global perspective to Terrapin Crypto Solutions. His
-                international experiences have enriched his understanding of
-                diverse markets and cultures, which informs our strategic
-                direction and global outlook.
+                Sulaman Shah is the founder and CEO of Terrapin Crypto Solutions, LLC, a Bitcoin-focused company advancing decentralized infrastructure, environmental sustainability, and blockchain innovation. With expertise in Environmental Science and Biological Research, Sulaman brings scientific precision to his investment and mining strategies, having traveled to over 20 countries across 4 continents, which brings a global perspective to Terrapin Crypto Solutions.
+                <br /> <br />
+                In 2024, Terrapin began mining Bitcoin with a 100% carbon-neutral footprint, with over 70% of its hashrate powered by hydropower. Sulaman's journey began in 2019 with options and stock trading, where he achieved notable success that allowed him to acquire the company's first ASIC (Application-Specific Integrated Circuit) miner on March 16, 2024, marking the start of our Bitcoin mining operations.
+                <br /> <br />
+                Through a strategic partnership with Meta-Luban, Sulaman serves as the exclusive North American ambassador, providing clients with top-tier access to ASIC sales, hosting, repairs, and mining site development from leading manufacturers. His early interest in sound money began with buying gold and silver in middle school—shaping a lifelong commitment to financial sovereignty and long-term value.
+                <br /> <br />
+                Sulaman advises the U.S. Senate on the capabilities, use cases, and economic benefits of Bitcoin and blockchain technology for American constituents and businesses. He also advises Bitcoin Timber, a renewable-powered mining sawmill in Guyana; Carbon Country, an eco-aligned mining venture; and contributes to Bitcoin District, a grassroots Bitcoin education and community hub in the Washington, D.C. metro area.
+                <br /> <br />
+                A dedicated advocate for inclusion and sustainability, Sulaman is an Eagle Scout, Vigil Honor recipient, and fluent in French. His ongoing research explores Bitcoin in developing regions, bee-integrated mining models, and broader applications of blockchain for environmental and social impact.
               </p>
               <img
                 className="absolute left-[-40px] z-1 top-[-20px]"
@@ -357,124 +315,7 @@ export default function Home() {
             id="pricingSection"
             className="flex flex-col items-start  px-[25px] gap-[14px]"
           >
-            <h3>Let’s curate blockchain solutions</h3>
-            <Link
-              href="https://calendly.com/ceo-terrapincrypto/30min?back=1&month=2024-09"
-              className="bg-black text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-black hover:border hover:border-black transition-colors"
-            >
-              Book A Call
-            </Link>
-            <div className="w-[80px] h-[2px] dividerLine"></div>
-
-            <div className="flex flex-row flex-wrap gap-[10px]">
-              <div className="pricingCard  h-full bg-transparent">
-                <div className="flex flex-col">
-                  <h3>Free Consultation</h3>
-                  <div className="flex flex-row gap-[5px] items-center">
-                    <h2 className="text-[30px] font-bold">$Free /</h2>
-                    <div className="flex flex-col gap-[5px]">
-                      <p>30 minutes</p>
-                    </div>
-                  </div>
-
-                  <GlobalButton href="https://calendly.com/ceo-terrapincrypto/30min?back=1&month=2024-09" />
-                </div>
-                <div className="w-full my-[25px] h-[2px] dividerLine"></div>
-
-                <div className="flex flex-col gap-[10px]">
-                  <p className="text-black font-bold">What to expect</p>
-                  <p>General Consultation</p>
-                  <div className="flex flex-row gap-[10px]">
-                    <p>
-                      I can provide an overview of Blockchain technology,
-                      explain key concepts, and help you understand how it can
-                      be applied to your specific use case
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pricingCard  h-full bg-transparent">
-                <div className="flex flex-col">
-                  <h3>Beginner</h3>
-                  <div className="flex flex-row gap-[5px] items-center">
-                    <h2 className="text-[30px] font-bold">$50 /</h2>
-                    <div className="flex flex-col gap-[5px]">
-                      <p>60 minutes</p>
-                    </div>
-                  </div>
-
-                  <GlobalButton href="https://calendly.com/ceo-terrapincrypto/beginner-level-consultation?back=1&month=2024-09" />
-                </div>
-                <div className="w-full my-[25px] h-[2px] dividerLine"></div>
-
-                <div className="flex flex-col gap-[10px]">
-                  <p className="text-black font-bold">What to expect</p>
-                  <p>General Consultation</p>
-                  <div className="flex flex-row gap-[10px]">
-                    <p>
-                      Market Analysis Wallet Setup and Security Investment
-                      Guidance Project Recommendations
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pricingCard  h-full bg-transparent">
-                <div className="flex flex-col">
-                  <h3>Intermediate</h3>
-                  <div className="flex flex-row gap-[5px] items-center">
-                    <h2 className="text-[30px] font-bold">$100 /</h2>
-                    <div className="flex flex-col gap-[5px]">
-                      <p>60 minutes</p>
-                    </div>
-                  </div>
-
-                  <GlobalButton href="https://calendly.com/ceo-terrapincrypto/intermediate-level-consultation?back=1" />
-                </div>
-                <div className="w-full my-[25px] h-[2px] dividerLine"></div>
-
-                <div className="flex flex-col gap-[10px]">
-                  <p className="text-black font-bold">What to expect</p>
-                  <p>Intermediate Consultation</p>
-                  <div className="flex flex-row gap-[10px]">
-                    <p>
-                      Market Analysis Wallet Setup and Security Investment
-                      Guidance Project Recommendations Tokenomics Consultation
-                      DeFi Strategies Security Audits
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pricingCard  h-full bg-transparent">
-                <div className="flex flex-col">
-                  <h3>Expert</h3>
-                  <div className="flex flex-row gap-[5px] items-center">
-                    <h2 className="text-[30px] font-bold">$150 /</h2>
-                    <div className="flex flex-col gap-[5px]">
-                      <p>90 minutes</p>
-                    </div>
-                  </div>
-
-                  <GlobalButton href="https://calendly.com/ceo-terrapincrypto/advanced-level-consultation?back=1&month=2024-09" />
-                </div>
-                <div className="w-full my-[25px] h-[2px] dividerLine"></div>
-
-                <div className="flex flex-col gap-[10px]">
-                  <p className="text-black font-bold">What to expect</p>
-                  <p>Expert Consultation</p>
-                  <div className="flex flex-row gap-[10px]">
-                    <p>
-                      Market Analysis Wallet Setup and Security Investment
-                      Guidance Project Recommendations Tokenomics Consultation
-                      DeFi Strategies Security Audits Smart Contract Audits
-                      Blockchain Development Tokenomics Design Web3 Integration
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+         
           </div>
         </div>
       </div>

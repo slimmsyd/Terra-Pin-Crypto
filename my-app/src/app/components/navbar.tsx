@@ -44,11 +44,18 @@ export default function Navbar({ handleConnect, scrollToSection }: NavbarProps) 
     <nav className={`${isScrolled ? "bg-black" : ""}  w-full h-[50px]  z-50`}>
       <div className="flex items-start justify-between w-full  p-4 mx-auto">
         <div className="flex items-center">
-          <img src="/Terra_Pin_Logo.png" alt="logo" />
+          <img src="/LogoBlack.png" alt="logo" />
         </div>
 
 
         <div className="flex items-center gap-[10px]">
+          <button 
+            onClick={() => scrollToSection("aboutUsSection")} 
+            className="bg-transparent text-black px-4 py-2 rounded-md hover:bg-gray-100 transition-colors"
+          >
+            About Us
+          </button>
+
           <button
           onClick={handleConnect}
           className="bg-transparent border border-black text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-colors">
