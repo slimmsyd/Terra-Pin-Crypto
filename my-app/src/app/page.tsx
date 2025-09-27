@@ -8,6 +8,7 @@ import Footer from "./components/footer";
 import GlobalButton from "./components/globalbutton";
 import Link from "next/link";
 import LoadingComponent from "./components/loadingComponent";
+import FeaturedPromotion from "./components/featuredPromotion";
 import { useAccount } from "wagmi";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 import { teardownTraceSubscriber } from "next/dist/build/swc";
@@ -124,6 +125,8 @@ export default function Home() {
       <Header onClick={() => scrollToSection("pricingSection")} />
 
       <div className=" mainWrapper mt-[100px] pb-[100px] flex flex-col items-start justify-start max-w-[1000px] m-auto border-l-[0.5px]  border-r-[0.5px]  border-b-[0.5px] border-black gap-[100px]">
+        <FeaturedPromotion />
+        
         <div id="aboutUsSection" className="flex flex-col items-start  px-[25px] gap-[14px]">
           <h3>About Us</h3>
           <div className="w-[80px] h-[2px] dividerLine"></div>
@@ -138,32 +141,6 @@ export default function Home() {
               </p>
             </div>
 
-            <div>
-              <h4 className="font-bold text-lg mb-2">Founder: Sulaman Shah</h4>
-              <p>
-                Sulaman Shah is the founder and CEO of Terrapin Crypto Solutions, LLC — a Bitcoin-focused company driving decentralized infrastructure, environmental sustainability, and blockchain innovation.
-              </p>
-              <p className="mt-2">
-                In 2024, Terrapin began mining Bitcoin with a 100% carbon-neutral footprint, with over 70% of its hashrate powered by hydropower.
-              </p>
-              <p className="mt-2">
-                Sulaman serves as the exclusive North American ambassador for Meta-Luban, offering clients top-tier access to ASIC sales, hosting, repairs, and mining site development from leading global manufacturers.
-              </p>
-              <p className="mt-2">
-                He brings a strong academic background in Environmental Science and Biological Research, applying scientific precision to his investment and mining strategies. His passion for sound money began in middle school, buying gold and silver — forming the basis of a lifelong commitment to financial sovereignty.
-              </p>
-              <p className="mt-2">
-                Sulaman advises the U.S. Senate on Bitcoin and blockchain technology use cases and economic implications, and is actively involved in multiple advisory roles:
-              </p>
-              <ul className="mt-2 ml-4 space-y-1">
-                <li><strong>Bitcoin Timber</strong> – Renewable-powered mining sawmill in Guyana</li>
-                <li><strong>Carbon Country</strong> – Eco-aligned mining venture</li>
-                <li><strong>Bitcoin District</strong> – A grassroots Bitcoin education hub in Washington, D.C.</li>
-              </ul>
-              <p className="mt-2">
-                Sulaman has traveled to over 20 countries across 4 continents, speaks fluent French, and is a lifelong Eagle Scout and Vigil Honor recipient. His ongoing research includes bee-integrated mining, blockchain solutions for developing regions, and tech for social/environmental impact.
-              </p>
-            </div>
 
             <div>
               <h4 className="font-bold text-lg mb-2">Featured Clients & Collaborations</h4>
@@ -302,17 +279,31 @@ export default function Home() {
             <div className="w-[80px] h-[2px] dividerLine"></div>
 
             <div className="relative">
-              <p>
-                Sulaman Shah is the founder and CEO of Terrapin Crypto Solutions, LLC, a Bitcoin-focused company advancing decentralized infrastructure, environmental sustainability, and blockchain innovation. With expertise in Environmental Science and Biological Research, Sulaman brings scientific precision to his investment and mining strategies, having traveled to over 20 countries across 4 continents, which brings a global perspective to Terrapin Crypto Solutions.
-                <br /> <br />
-                In 2024, Terrapin began mining Bitcoin with a 100% carbon-neutral footprint, with over 70% of its hashrate powered by hydropower. Sulaman's journey began in 2019 with options and stock trading, where he achieved notable success that allowed him to acquire the company's first ASIC (Application-Specific Integrated Circuit) miner on March 16, 2024, marking the start of our Bitcoin mining operations.
-                <br /> <br />
-                Through a strategic partnership with Meta-Luban, Sulaman serves as the exclusive North American ambassador, providing clients with top-tier access to ASIC sales, hosting, repairs, and mining site development from leading manufacturers. His early interest in sound money began with buying gold and silver in middle school—shaping a lifelong commitment to financial sovereignty and long-term value.
-                <br /> <br />
-                Sulaman advises the U.S. Senate on the capabilities, use cases, and economic benefits of Bitcoin and blockchain technology for American constituents and businesses. He also advises Bitcoin Timber, a renewable-powered mining sawmill in Guyana; Carbon Country, an eco-aligned mining venture; and contributes to Bitcoin District, a grassroots Bitcoin education and community hub in the Washington, D.C. metro area.
-                <br /> <br />
-                A dedicated advocate for inclusion and sustainability, Sulaman is an Eagle Scout, Vigil Honor recipient, and fluent in French. His ongoing research explores Bitcoin in developing regions, bee-integrated mining models, and broader applications of blockchain for environmental and social impact.
-              </p>
+              <div className="space-y-4">
+                <p>
+                  Sulaman Shah is the founder and CEO of Terrapin Crypto Solutions, LLC — a Bitcoin-focused company driving decentralized infrastructure, environmental sustainability, and blockchain innovation.
+                </p>
+                <p>
+                  In 2024, Terrapin began mining Bitcoin with a 100% carbon-neutral footprint, with over 70% of its hashrate powered by hydropower.
+                </p>
+                <p>
+                  Sulaman serves as the exclusive North American ambassador for Meta-Luban, offering clients top-tier access to ASIC sales, hosting, repairs, and mining site development from leading global manufacturers.
+                </p>
+                <p>
+                  He brings a strong academic background in Environmental Science and Biological Research, applying scientific precision to his investment and mining strategies. His passion for sound money began in middle school, buying gold and silver — forming the basis of a lifelong commitment to financial sovereignty.
+                </p>
+                <p>
+                  Sulaman advises the U.S. Senate on Bitcoin and blockchain technology use cases and economic implications, and is actively involved in multiple advisory roles:
+                </p>
+                <ul className="ml-4 space-y-1">
+                  <li><strong>Bitcoin Timber</strong> – Renewable-powered mining sawmill in Guyana</li>
+                  <li><strong>Carbon Country</strong> – Eco-aligned mining venture</li>
+                  <li><strong>Bitcoin District</strong> – A grassroots Bitcoin education hub in Washington, D.C.</li>
+                </ul>
+                <p>
+                  Sulaman has traveled to over 20 countries across 4 continents, speaks fluent French, and is a lifelong Eagle Scout and Vigil Honor recipient. His ongoing research includes bee-integrated mining, blockchain solutions for developing regions, and broader applications of blockchain for environmental and social impact.
+                </p>
+              </div>
               <img
                 className="absolute left-[-40px] z-1 top-[-20px]"
                 src="https://terra-pin-crypto.vercel.app/images/Dot-Image.png"
@@ -363,27 +354,27 @@ function ImageSlider() {
   const services = [
     {
       src: "/images/mining_machines.png",
-      name: "Bitcoin Mining",
+      name: "Bitcoin Mining & Mining Site Development",
       description:
-        "Dedicated to supporting the Bitcoin network by processing transactions in real time.",
+        "Terrapin Crypto began with Bitcoin mining, and it's still a core part of our identity. We mine Bitcoin using renewable energy with a sustainable and decentralized approach. Our services include ASIC acquisition and sourcing, mining infrastructure consulting and development, construction of full mining sites, hosting services in secure U.S.-based facilities, and consultation for noise, heat, or power challenges. Our hosting services are ideal for clients dealing with high local electricity costs, limited technical infrastructure, noise and space concerns, or on-site maintenance and repair risks.",
     },
     {
       src: "/images/AI_one.png",
-      name: "Crypto Consultation",
+      name: "Media Marketing & Event Coverage",
       description:
-        "Cryptocurrency Consulting: Expert guidance on cryptocurrency investments, security, and blockchain integration.",
+        "We offer media production and marketing support to crypto companies and organizations — including video editing, event documentation, and promotional content creation for industry conferences, workshops, and launch events. We also specialize in community building and event support, including co-hosting and planning workshops or summits, booth setup, on-site logistics, and vendor liaison services, live audience engagement strategies and content creation, and sponsorship opportunities for aligned projects.",
     },
     {
       src: "/images/Eth_Logo.png",
-      name: "Web3 Consultation",
+      name: "Blockchain Development",
       description:
-        "Comprehensive support for users at all levels, from beginners to advanced, covering privacy, security, and advanced blockchain applications.",
+        "Our team offers tailored blockchain solutions for startups and enterprises. Whether you're looking to add wallet integration for your existing business, tokenize real-world assets (RWAs), or build custom smart contracts or dApps, Terrapin Crypto Solutions can turn your ideas into secure, scalable blockchain products.",
     },
     {
       src: "/images/Bitcoin_Logo.png",
-      name: "Blockchain Development",
+      name: "Cryptocurrency Consultations & Workshops",
       description:
-        " Custom blockchain applications, token development, and other tailored solutions.",
+        "We provide educational services and private workshops tailored to both individuals and businesses. Whether you're new to crypto or looking to go deeper, we offer guidance on wallet setup and usage (including cold storage), self-custody and privacy best practices, mining education and hardware guidance, Bitcoin fundamentals, tokenomics, and market strategy, navigating exchanges and OTC markets, and historical and economic context of blockchain tech.",
     },
   ];
 
