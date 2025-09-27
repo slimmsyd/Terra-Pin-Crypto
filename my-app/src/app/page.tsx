@@ -127,23 +127,54 @@ export default function Home() {
         <div id="aboutUsSection" className="flex flex-col items-start  px-[25px] gap-[14px]">
           <h3>About Us</h3>
           <div className="w-[80px] h-[2px] dividerLine"></div>
-          <p>
-            Terrapin Crypto Solutions, LLC is a Delaware-registered company that
-            stands at the cutting edge of the cryptocurrency and blockchain
-            industry. Founded on January 23, 2024, we are headquartered in Fort
-            Washington, Maryland, with our registered office located at 1504
-            North Broom Street, #14, Wilmington, DE 19806. While our primary
-            operations are based in the Washington, D.C. metropolitan area, we
-            have successfully completed projects and consultations across the
-            country and beyond.
-            <br /> <br />
-            The name Terrapin was chosen out of respect for the Algonquin Native
-            Americans indigenous to the Maryland region, where our company was
-            founded. The terrapin, a type of turtle, symbolizes perseverance and
-            resilience—qualities that align with our mission to innovate and
-            excel in the rapidly evolving field of cryptocurrency and blockchain
-            technology.
-          </p>
+          <div className="space-y-6">
+            <div>
+              <h4 className="font-bold text-lg mb-2">Company Overview</h4>
+              <p>
+                Terrapin Crypto Solutions, LLC is a Delaware-registered company that stands at the cutting edge of the cryptocurrency and blockchain industry. Founded on January 23, 2024, we are headquartered in Fort Washington, Maryland, with our registered office in Wilmington, Delaware. While our operations are centered in the Washington, D.C. metropolitan area, we serve clients across the U.S. and internationally.
+              </p>
+              <p className="mt-4">
+                The name "Terrapin" was chosen out of respect for the Algonquin Native Americans indigenous to Maryland. The terrapin turtle symbolizes perseverance and resilience — core values of our mission to lead with innovation and excellence in the rapidly evolving blockchain space.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-lg mb-2">Founder: Sulaman Shah</h4>
+              <p>
+                Sulaman Shah is the founder and CEO of Terrapin Crypto Solutions, LLC — a Bitcoin-focused company driving decentralized infrastructure, environmental sustainability, and blockchain innovation.
+              </p>
+              <p className="mt-2">
+                In 2024, Terrapin began mining Bitcoin with a 100% carbon-neutral footprint, with over 70% of its hashrate powered by hydropower.
+              </p>
+              <p className="mt-2">
+                Sulaman serves as the exclusive North American ambassador for Meta-Luban, offering clients top-tier access to ASIC sales, hosting, repairs, and mining site development from leading global manufacturers.
+              </p>
+              <p className="mt-2">
+                He brings a strong academic background in Environmental Science and Biological Research, applying scientific precision to his investment and mining strategies. His passion for sound money began in middle school, buying gold and silver — forming the basis of a lifelong commitment to financial sovereignty.
+              </p>
+              <p className="mt-2">
+                Sulaman advises the U.S. Senate on Bitcoin and blockchain technology use cases and economic implications, and is actively involved in multiple advisory roles:
+              </p>
+              <ul className="mt-2 ml-4 space-y-1">
+                <li><strong>Bitcoin Timber</strong> – Renewable-powered mining sawmill in Guyana</li>
+                <li><strong>Carbon Country</strong> – Eco-aligned mining venture</li>
+                <li><strong>Bitcoin District</strong> – A grassroots Bitcoin education hub in Washington, D.C.</li>
+              </ul>
+              <p className="mt-2">
+                Sulaman has traveled to over 20 countries across 4 continents, speaks fluent French, and is a lifelong Eagle Scout and Vigil Honor recipient. His ongoing research includes bee-integrated mining, blockchain solutions for developing regions, and tech for social/environmental impact.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-lg mb-2">Featured Clients & Collaborations</h4>
+              <ul className="space-y-1">
+                <li><strong>U.S. Senate</strong> — Blockchain and Bitcoin economic advising</li>
+                <li><strong>District Lemonade</strong> — Crypto integration consulting</li>
+                <li><strong>Bluey Hair Salon</strong> — Education workshops for crypto onboarding</li>
+                <li><strong>Washington Development Company</strong> — Blockchain consulting and strategy</li>
+              </ul>
+            </div>
+          </div>
           <button
             onClick={() => scrollToSection("pricingSection")}
             className="bg-black text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-black hover:border hover:border-black transition-colors"
